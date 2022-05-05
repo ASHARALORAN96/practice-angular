@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-
-  constructor() { }
+  allowDisabled : boolean = false
+  constructor() { 
+    setTimeout(()=>{
+      this.allowDisabled = true
+    },2000)
+  }
 
   ngOnInit(): void {
   }
