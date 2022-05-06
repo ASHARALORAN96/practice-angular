@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowDisabled: boolean = false;
   createNewServer: string = 'there is no server created';
-  inputData : string = '';
-  servers :string[]= []
-  showNewServer = false
+  inputDataForServerName: string = '';
+  servers: string[] = [];
+  showNewServer : boolean = false;
+
   constructor() {
     setTimeout(() => {
       this.allowDisabled = true;
@@ -20,14 +21,13 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {}
 
   addServer(e: Event) {
-
-    e.preventDefault()
-    this.showNewServer=true
-    this.servers.push(this.inputData)
-    this.createNewServer = 'server is created '+ this.inputData;
-  }
-  inputEventHandler(event : any){
-    this.inputData = (<HTMLInputElement>event.target).value;
+    e.preventDefault();
+    this.showNewServer = true;
+    this.servers.push(this.inputDataForServerName);
+    this.createNewServer = 'server is created ' + this.inputDataForServerName;
   }
 
+  inputEventHandler(event: any) {
+    this.inputDataForServerName = (<HTMLInputElement>event.target).value;
+  }
 }
