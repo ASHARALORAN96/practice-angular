@@ -1,5 +1,20 @@
-<p>servers works!</p>
-<button class="btn btn-primary" [disabled]="!allowDisabled">Add server</button>
-<p [innerText]="allowDisabled"></p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- event binding -->
+<input type="text" class="form-control" (input)="inputEventHandler($event)" />
+<!-- both way binding -->
+<!-- <input type="text" class="form-control" [(ngModel)]="inputData"> -->
+<!-- proparty binding -->
+<br>
+<button
+  class="btn btn-primary"
+  [disabled]="!allowDisabled"
+  (click)="addServer($event)"
+>
+Add server
+</button>
+
+<p>Can add server:<strong><span [innerText]="allowDisabled"></span></strong></p>
+<p *ngIf="showNewServer">{{ createNewServer }}</p>
+<!-- builtin stractural directives that add or remove elements from the dom -->
+<!-- <p *ngIf="showNewServer; else elseMessage">{{createNewServer}}</p>
+<ng-template #elseMessage>No server is created</ng-template> -->
+<app-server *ngFor="let server of servers"></app-server>
