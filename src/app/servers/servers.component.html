@@ -17,4 +17,4 @@ Add server
 <!-- builtin stractural directives that add or remove elements from the dom -->
 <!-- <p *ngIf="showNewServer; else elseMessage">{{createNewServer}}</p>
 <ng-template #elseMessage>No server is created</ng-template> -->
-<app-server *ngFor="let server of servers"></app-server>
+<app-server *ngFor="let server of servers; let i =index"></app-server>
