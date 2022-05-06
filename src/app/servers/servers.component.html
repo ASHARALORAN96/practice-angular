@@ -5,11 +5,11 @@
 <!-- proparty binding -->
 <button class="btn btn-primary" 
 [disabled]="!allowDisabled"
-(click)="addServer()">Add server</button>
+(click)="addServer($event)">Add server</button>
 
 <p [innerText]="allowDisabled"></p>
 <p *ngIf="showNewServer">{{createNewServer}}</p>
-<!-- builtin alternative  directives-->
+<!-- builtin stractural directives that add or remove elements from the dom -->
 <!-- <p *ngIf="showNewServer; else elseMessage">{{createNewServer}}</p>
 <ng-template #elseMessage>No server is created</ng-template> -->
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
